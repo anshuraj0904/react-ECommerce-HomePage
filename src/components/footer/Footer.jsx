@@ -1,8 +1,9 @@
 import React from 'react'
 
+
 function Footer() {
   return (
-    <div className='p-8 bg-gray-100 shadow-md border-t flex justify-between'>
+    <div className='p-8 shadow-md border-t flex justify-between'>
         <p className='text-lg font-medium text-gray-700'>© 2025 Anshu Raj | All rights reserved</p>
         <div>
          <ul className='flex space-x-8 text-lg font-medium text-gray-700'>
