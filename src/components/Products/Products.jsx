@@ -1,6 +1,7 @@
 import React from "react";
 
-function Products({ name, price, rate, imgsrc }) {
+
+function Products({ name, price, rating, imgsrc }) {
   // or, we can use props and then use those like props.name, props.price, props.rating.
   // The thing which we have done above is called destructuring.
   return (
@@ -9,11 +10,11 @@ function Products({ name, price, rate, imgsrc }) {
         <img
           src={imgsrc}
           alt="Polo T-shirt"
-          className="w-80 h-65 object-cover rounded-xl"
+          className="w-80 h-64 object-cover rounded-xl transform transition-transform duration-300 hover:scale-110"
         />
         <div className="mt-4 text-center">
           <h1 className="text-xl font-semibold text-gray-800">{name}</h1>
-          <p className="text-gray-600 mt-1">⭐ {rate} Rate</p>
+          <p className="text-gray-600 mt-1">⭐ {rating} ratings</p>
           <p className="text-gray-800 font-medium mt-2">Price: ${price}</p>
           <button className="mt-4 bg-blue-500 text-white px-4 py-2 cursor-pointer rounded-lg shadow-md hover:bg-blue-600 hover:shadow-xl transition duration-300">
             Add to Cart

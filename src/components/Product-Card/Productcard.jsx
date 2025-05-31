@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Products from "../Products/Products.jsx";
 
-const productList = [
+let productList =  [
     {
       id: 1,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -110,19 +110,39 @@ const productList = [
   ]
 
 
-function Productcard() {
+  
+  function Productcard() {
+    const [listofProduct, setlistofProduct] = useState(productList)
+    const [isFiltered, setIsFiltered] = useState(false);
   return (
+   <>
+    <button className='bg-blue-500 text-white px-4 py-2 cursor-pointer rounded-lg shadow-md hover:bg-blue-600 hover:shadow-xl transition duration-300' 
+      onClick={()=>{
+        if (isFiltered) {
+          setlistofProduct(productList);
+          setIsFiltered(false);
+          return;
+        }
+        else{
+            const filteredProducts = productList.filter((product) => product.rating.rate >= 4);
+            setlistofProduct(filteredProducts);
+            setIsFiltered(true);
+           return 
+        }
+      }}
+    >{isFiltered ? 'Remove Filter' : 'Top Rated Products'}</button>
   <div className="flex flex-wrap justify-between bg-gray-200 bg-opacity-70 backdrop-blur-sm p-6 rounded-xl shadow-inner">
-    {productList.map((product, index) => (
+    {listofProduct.map((product, index) => (
       <Products
-        key={product.id}
-        price={product.price}
-        name={product.title}
-        rating={product.rating.rate}
-        imgsrc={product.image}
+      key={product.id}
+      price={product.price}
+      name={product.title}
+      rating={product.rating["rate"]}
+      imgsrc={product.image}
       />
     ))}
   </div>
+    </> 
 )
 };
 

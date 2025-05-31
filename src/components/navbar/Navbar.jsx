@@ -1,10 +1,11 @@
 import React from 'react'
 
+
 function Navbar() {
   return (
     <div className='p-6 bg-gray-100 shadow-md border-b flex justify-between'>
     <div className='flex items-center space-between space-x-10'>
-        <h1 className='text-3xl font-bold text-gray-800 underline'>Logo</h1>
+        <h1 className='text-3xl font-bold text-gray-800 underline'>Logo</h1>            
         <ul className='flex space-x-8 text-lg font-medium text-gray-700'>
             <li className='cursor-pointer hover:underline'>Men</li>
             <li className='cursor-pointer hover:underline'>Women</li>
