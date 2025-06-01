@@ -2,16 +2,17 @@ import React, { useState } from 'react'
 
 
 // We'll now add a light/dark mode here.
-function Navbar() {
-    const [modeName, changemodeName] = useState("Light");
+function Navbar({modeName, changeModeName })
+{
+  
     const changeMode = () => {
        if(modeName === "Light") {
-        changemodeName("Dark")
-        document.documentElement.classList.add("dark")
+        changeModeName("Dark")
+        document.body.classList.add("dark")
        }
          else {
-          changemodeName("Light")
-            document.documentElement.classList.remove("dark")
+          changeModeName("Light")
+          document.body.classList.remove("dark")
          }
     }
   return (
@@ -25,9 +26,10 @@ function Navbar() {
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}>Cart</li>
         </ul>
     </div>
-        <input type="text" placeholder='Search' className='w-56 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500' />
        <button className='bg-blue-500 text-white px-4 py-2 cursor-pointer rounded-lg shadow-md hover:bg-blue-600 hover:shadow-xl transition duration-300'
-        onClick={()=>{changeMode()}}
+        onClick={()=>{
+          console.log('Something Changed!');          
+          changeMode()}}
        >{modeName}</button>
    </div> 
   )

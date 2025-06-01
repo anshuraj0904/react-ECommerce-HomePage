@@ -3,10 +3,10 @@ import React from 'react'
 function Skeleton() {
   return (
     <div className="flex flex-wrap gap-6 p-6">
-      {[...Array(6)].map((_, i) => (
+      {[...Array(8)].map((_, i) => (
         <div
           key={i}
-          className="w-72 h-96 bg-white rounded-xl shadow-md p-4 animate-pulse"
+          className="w-80 h-96 bg-white rounded-xl shadow-md p-4 animate-pulse"
         >
           <div className="w-full h-48 bg-gray-300 rounded-xl mb-4"></div>
           <div className="space-y-3 items-center">

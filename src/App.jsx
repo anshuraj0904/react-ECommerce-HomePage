@@ -6,12 +6,15 @@ import Footer from './components/footer/Footer.jsx'
 
 function App() {
 
+    const [modeName, changeModename] = useState('Light'); 
+
+
   return (
     <>
       <div>
-          <Navbar/>
-          <Productcard/>
-          <Footer/>
+          <Navbar modeName={modeName} changeModeName={changeModename}/>
+          <Productcard modeName={modeName}/>
+          <Footer modeName={modeName}/>
       </div>
     </>
   )
