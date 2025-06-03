@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Products from "../Products/Products.jsx";
 import Skeleton from "../skeleton/Skeleton.jsx";
+import { useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Productcard({modeName}) {
+function Productcard() {
   const [isFiltered, setIsFiltered] = useState(false);
   const [productList, setProductList] = useState([]); // full data
   const [listofProduct, setlistofProduct] = useState([]); // filtered data
   const [searchText, setSearchText] = useState("");
+
+  const { modeName } = useOutletContext(); // Get modeName from context
 
   const fetchData = async () => {
     const data = await fetch("https://fakestoreapi.com/products");
@@ -74,11 +78,12 @@ function Productcard({modeName}) {
             rating={product.rating["rate"]}
             imgsrc={product.image}
             modeName={modeName}
-          />
+            id={product.id}
+            />
         ))}
       </div>
     </>
   );
 }
 
-export default Productcard;
+export default Productcard

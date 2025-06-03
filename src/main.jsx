@@ -2,9 +2,33 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider  } from 'react-router-dom'
+import Home from './components/Home/Home.jsx'
+import Productcard from './components/ProductCard/Productcard.jsx'
+import Kids from './components/Kids/Kids.jsx'
+import Men from './components/Men/Men.jsx'
+import ProductDetail from './components/ProductDetail/ProductDetail.jsx'
+
+
+
+const appRouter = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/'  element={<App />}>
+      <Route index element={<Home />} />
+      <Route path="men" element={<Men />} />
+      <Route path='products' element={<Productcard />} />
+      <Route path="women" element={<App />} />
+      <Route path="kids" element={<Kids />} />
+      <Route path="product/:id" element={<ProductDetail />} />
+      
+      <Route path="*" element={<h1 className='text-3xl font-bold text-red-500'>404 Not Found</h1>} />
+    </Route>
+
+  )
+)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+        <RouterProvider router={appRouter} />
   </StrictMode>,
 )

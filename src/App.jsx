@@ -1,22 +1,21 @@
 import { useState } from 'react'
 import './App.css'
 import Navbar from './components/navbar/Navbar.jsx'
-import Productcard from './components/Product-Card/Productcard.jsx'
 import Footer from './components/footer/Footer.jsx'
+import { Outlet } from 'react-router-dom'
 
 function App() {
-
-    const [modeName, changeModename] = useState('Light'); 
-
+  const [modeName, changeModeName] = useState('Light');
 
   return (
-    <>
-      <div>
-          <Navbar modeName={modeName} changeModeName={changeModename}/>
-          <Productcard modeName={modeName}/>
-          <Footer modeName={modeName}/>
-      </div>
-    </>
+    <div>
+      <Navbar modeName={modeName} changeModeName={changeModeName} />
+      
+      {/* 👇 Only modeName passed in context, no need for changeModeName */}
+      <Outlet context={{ modeName }} />
+      
+      <Footer modeName={modeName} />
+    </div>
   )
 }
 
