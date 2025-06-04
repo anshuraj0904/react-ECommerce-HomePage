@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Products from "../Products/Products.jsx";
 import Skeleton from "../skeleton/Skeleton.jsx";
 import { useOutletContext } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 function Productcard() {
   const [isFiltered, setIsFiltered] = useState(false);

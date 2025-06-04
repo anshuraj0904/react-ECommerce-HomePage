@@ -11,7 +11,7 @@ function Products({ name, price, rating, imgsrc, modeName, id}) {
 
   return (   
     <>
-    <Link to={`/product/${id}`} key={id} modeName={modeName}>
+    <Link to={`/product/${id}`} key={id}>
       <div className="max-w-xs rounded-2xl shadow-md border m-4 p-4 hover:shadow-lg transition duration-300">
     
         <img

@@ -9,8 +9,6 @@ import Kids from './components/Kids/Kids.jsx'
 import Men from './components/Men/Men.jsx'
 import ProductDetail from './components/ProductDetail/ProductDetail.jsx'
 import AboutUs from './components/AboutUs/AboutUs.jsx'
-import { useOutletContext } from 'react-router-dom'
-
 
 
 const appRouter = createBrowserRouter(
@@ -22,7 +20,7 @@ const appRouter = createBrowserRouter(
       <Route path="women" element={<App />} />
       <Route path="kids" element={<Kids />} />
       <Route path="product/:id" element={<ProductDetail />} />
-      <Route path='about' element={<AboutUs name={"Anshu Raj"} email={"rajanshu@gmail.com"} address={"Narayanpur, Jamtara"} />}/>
+      <Route path='about' element={<AboutUs  address={"Narayanpur, Jamtara"} />}/>
       
       <Route path="*" element={<h1 className='text-3xl font-bold text-red-500'>404 Not Found</h1>} />
     </Route>
