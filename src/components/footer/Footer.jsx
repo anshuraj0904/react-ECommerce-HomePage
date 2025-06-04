@@ -9,7 +9,7 @@ function Footer({modeName}) {
         <div>
          <ul className={modeName === "Light" ?'flex space-x-8 text-lg font-medium text-gray-700':'flex space-x-8 text-lg font-medium text-white'}>
             <li className='cursor-pointer hover:underline'><Link to={'/products'}>Home</Link></li>
-            <li className='cursor-pointer hover:underline'>About Us</li>
+            <li className='cursor-pointer hover:underline'><Link to={'/about'}>About Us</Link></li>
             <li className='cursor-pointer hover:underline'>Contact Us</li>
             <li className='cursor-pointer hover:underline'>Privacy Policy</li>
          </ul>
