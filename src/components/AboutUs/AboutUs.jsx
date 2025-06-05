@@ -52,13 +52,13 @@ class AboutUs extends React.Component {
           "max-w-md mx-auto m-10 shadow-lg rounded-2xl p-8 border text-center border-gray-200 bg-white"
         }
       >
-        <h1 className={`text-2xl font-bold text-center  mb-6 'text-gray-800' `}>
+        <h1 className={`text-2xl font-bold text-center  mb-6 text-gray-800 `}>
           About
         </h1>
 
         <div className={`space-y-3 text-lg text-gray-700`}>
           <img
-            className="w-40 h-40 rounded-full mx-auto"
+            className="w-40 h-40 rounded-full mx-auto hover:scale-110 transition duration-300"
             src={avatar_url}
             alt=""
           />

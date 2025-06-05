@@ -13,7 +13,6 @@ function Productcard() {
 
   const fetchData = async () => {
     const data = await fetch("https://fakestoreapi.com/products");
-    console.log("Data: ", data);
     const resData = await data.json();
     return resData;
   };
@@ -22,7 +21,7 @@ function Productcard() {
     const getData = async () => {
       try {
         const res = await fetchData();
-        console.log("Response Data: ", res);
+        // console.log("Response Data: ", res);
         setProductList(res);
         setlistofProduct(res);
       } catch (error) {

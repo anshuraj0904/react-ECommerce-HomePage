@@ -22,7 +22,7 @@ function Navbar({modeName, changeModeName })
         <ul className='flex space-x-8 text-lg font-medium text-gray-700'>
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}><Link to={"/products"}>Home</Link></li>
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}><Link to={"/men"}>Men</Link></li>
-            <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}>Women</li>
+            <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}><Link to={"/grocery"}>Grocery</Link></li>
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}><Link to={"/kids"}>Kids</Link></li>
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}>Cart</li>
         </ul>
