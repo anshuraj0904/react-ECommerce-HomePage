@@ -33,3 +33,32 @@ function Products({ name, price, rating, imgsrc, modeName, id}) {
 }
 
 export default Products;
+
+
+export const isBestSeller = (WrappedComponent) => {
+  return function EnhancedComponent(props) {
+    return (
+      <div className="relative">
+        <span className="absolute rounded-sm bg-purple-700 text-white -left-2 -top-1 px-4 py-1">
+          Best Seller
+        </span>
+        <WrappedComponent {...props} />
+      </div>
+    );
+  };
+};
+
+
+
+export const isLowPrice = (WrappedComponent) => {
+  return function EnhancedComponent(props) {
+    return (
+      <div className="relative">
+        <span className="absolute rounded-sm bg-green-700 -top-0.5 -left-3 text-white px-4 py-1">
+          Lowest Price
+        </span>
+        <WrappedComponent {...props} />
+      </div>
+    );
+  };
+};

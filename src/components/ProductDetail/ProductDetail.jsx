@@ -22,7 +22,7 @@ function ProductDetail() {
         <img
           src={image}
           alt="Polo T-shirt"
-          className="w-100 h-70 object-cover rounded-xl transform transition-transform duration-300 hover:scale-110"
+          className="w-100 h-95 object-cover rounded-xl transform transition-transform duration-300 hover:scale-110"
         />
         <div className="mt-4 flex flex-col justify-center items-center">
           <h1

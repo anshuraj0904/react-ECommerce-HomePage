@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Products from "../Products/Products.jsx";
+import Products, { isBestSeller, isLowPrice } from "../Products/Products.jsx";
 import Skeleton from "../skeleton/Skeleton.jsx";
 import { useOutletContext } from "react-router-dom";
 
@@ -30,6 +30,9 @@ function Productcard() {
     };
     getData();
   }, []);
+
+  const BestSellers = isBestSeller(Products)
+  const LowPrices = isLowPrice(Products)
 
   return listofProduct.length === 0 ? (
     <Skeleton />
@@ -68,7 +71,25 @@ function Productcard() {
         </button>
       </div>
       <div className="flex flex-wrap justify-between backdrop-blur-sm p-6 rounded-xl shadow-inner">
-        {listofProduct?.map((product, index) => (
+        {listofProduct?.map((product, index) => 
+        product.rating.rate >=4.2 ? (
+          <BestSellers key={product.id}
+           price={product.price}
+            name={product.title}
+            rating={product.rating["rate"]}
+            imgsrc={product.image}
+            modeName={modeName}
+            id={product.id}/>) :
+
+            product.price <= 50 ? (
+              <LowPrices key={product.id}
+               price={product.price}
+                name={product.title}
+                rating={product.rating["rate"]}
+                imgsrc={product.image}
+                modeName={modeName}
+                id={product.id}/>) :
+        (
           <Products
             key={product.id}
             price={product.price}

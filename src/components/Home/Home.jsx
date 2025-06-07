@@ -2,7 +2,7 @@ import React from 'react';
 
 function Home() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-200">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-white to-red-100">
       <div className="bg-white shadow-xl rounded-2xl p-10 text-center max-w-lg">
         <h1 className="text-4xl font-bold text-blue-600 mb-4">Welcome to the Home Page</h1>
         <p className="text-gray-600 text-lg mb-6">
