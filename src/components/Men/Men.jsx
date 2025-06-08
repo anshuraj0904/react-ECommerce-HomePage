@@ -1,13 +1,16 @@
-import React, {useState} from 'react'
-import Accordion from '../Home/Accordion/Accordion'
+import React, {useState, useContext, use} from 'react'
+import Accordion from '../Accordion/Accordion'
+import UserContext from '../../utils/UserContext'
 
 function Men() {
 
   const [open,setOpen] = useState(null)
-  const [isShown, setIsShown] = useState(false)
 
+  const user = useContext(UserContext)
+  
   return (
     <div className='max-w-6xl mx-auto mt-10'>
+      <input type="text" value={user.name} onChange={(e)=>{user.changeName(e.target.value)}} className='border border-black rounded-sm p-0.5' />
       <h1 className='text-3xl font-bold text-gray-800'>Filter Options</h1>
      {
 

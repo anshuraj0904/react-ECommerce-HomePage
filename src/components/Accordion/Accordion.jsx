@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ListItems from "../../ListItems/ListItems";
+import ListItems from "../ListItems/ListItems";
 
 function Accordion({title, open, setOpen}) {
     // Now, we want that when one accordion is opened, the rest need to be closed, and, for that we need to ensure that the data is passed from the correct plavce in the hierarchy.

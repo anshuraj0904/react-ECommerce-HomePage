@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link,  } from 'react-router-dom'
+import UserContext from '../../utils/UserContext'
 
 // We'll now add a light/dark mode here.
 function Navbar({modeName, changeModeName })
 {
+
+  const user = useContext(UserContext)
   
     const changeMode = () => {
        if(modeName === "Light") {
@@ -25,6 +28,7 @@ function Navbar({modeName, changeModeName })
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}><Link to={"/grocery"}>Grocery</Link></li>
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}><Link to={"/kids"}>Kids</Link></li>
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}>Cart</li>
+            <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}>{user.name}</li>
         </ul>
     </div>
        <button className='bg-blue-500 text-white px-4 py-2 cursor-pointer rounded-lg shadow-md hover:bg-blue-600 hover:shadow-xl transition duration-300'
