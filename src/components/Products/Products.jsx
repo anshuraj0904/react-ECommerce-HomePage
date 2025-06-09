@@ -12,7 +12,7 @@ function Products({ name, price, rating, imgsrc, modeName, id}) {
   return (   
     <>
     <Link to={`/product/${id}`} key={id}>
-      <div className="max-w-xs rounded-2xl shadow-md border m-4 p-4 hover:shadow-lg transition duration-300">
+      <div className="max-w-xs h-140 rounded-2xl shadow-md border m-4 p-4 hover:shadow-lg transition duration-300">
     
         <img
           src={imgsrc}
@@ -23,7 +23,7 @@ function Products({ name, price, rating, imgsrc, modeName, id}) {
           <p className={modeName === "Light" ?  'text-gray-600 mt-1' : 'text-white mt-1'}>⭐ {rating} ratings</p>
           <p className={modeName === "Light" ? 'text-gray-800 font-medium mt-2':'text-white font-medium mt-2'}>Price: ${price}</p>
           <button className="mt-4 bg-blue-500 text-white px-4 py-2 cursor-pointer rounded-lg shadow-md hover:bg-blue-600 hover:shadow-xl transition duration-300">
-            Add to Cart
+            Show Details
           </button>
         </div>
       </div>

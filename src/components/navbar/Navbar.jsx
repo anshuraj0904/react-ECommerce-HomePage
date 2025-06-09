@@ -1,12 +1,17 @@
 import React, { useState, useContext } from 'react'
 import { Link,  } from 'react-router-dom'
 import UserContext from '../../utils/UserContext'
+import { useSelector } from 'react-redux'
 
 // We'll now add a light/dark mode here.
 function Navbar({modeName, changeModeName })
 {
 
   const user = useContext(UserContext)
+
+  // Getting the store here usling the useSelector.
+  const cartItems = useSelector((store)=> store.cart.cartItems)
+  console.log(cartItems);
   
     const changeMode = () => {
        if(modeName === "Light") {
@@ -27,7 +32,9 @@ function Navbar({modeName, changeModeName })
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}><Link to={"/men"}>Men</Link></li>
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}><Link to={"/grocery"}>Grocery</Link></li>
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}><Link to={"/kids"}>Kids</Link></li>
-            <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}>Cart</li>
+<li className={modeName === "Light" ? 'relative cursor-pointer hover:underline' : 'relative cursor-pointer hover:underline text-white'}>
+  <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-xs bg-red-400 text-white px-2 py-0.5 rounded-full shadow-md">{cartItems.length}</span><Link to={"/cart"}>Cart</Link>
+</li>
             <li className={modeName === "Light" ? 'cursor-pointer hover:underline' : 'cursor-pointer hover:underline text-white'}>{user.name}</li>
         </ul>
     </div>

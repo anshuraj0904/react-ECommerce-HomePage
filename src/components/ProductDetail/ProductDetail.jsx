@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import AboutSkeleton from "../skeleton/AboutSkeleton";
 import { useOutletContext } from "react-router-dom";
 import useGetSingleProduct from "../../hook/useGetSingleProduct";
+import { addItems } from "../../Store/CartSlice";
+import { useDispatch } from "react-redux";
+
 
 function ProductDetail() {
   const { id } = useParams();
@@ -10,11 +13,18 @@ function ProductDetail() {
 
   const product = useGetSingleProduct(id);
 
+  const dispatch = useDispatch()
+
   if (product === null) {
     return <AboutSkeleton />;
   }
 
   const { title, image, price, category } = product;
+
+  const handleCartItem =()=>{
+    alert(`${title} Added to Cart!`)
+    dispatch(addItems(product));
+  }
 
   return (
     <div className=" flex justify-center items-center">
@@ -61,7 +71,8 @@ function ProductDetail() {
           >
             Price: ${price}
           </p>
-          <button className="mt-4 bg-blue-500 text-white px-4 py-2 cursor-pointer rounded-lg shadow-md hover:bg-blue-600 hover:shadow-xl transition duration-300">
+          <button className="mt-4 bg-purple-500 text-white px-4 py-2 cursor-pointer rounded-lg shadow-md hover:bg-yellow-600 hover:shadow-xl transition duration-300"
+          onClick={handleCartItem}>
             Add to Cart
           </button>
         </div>
