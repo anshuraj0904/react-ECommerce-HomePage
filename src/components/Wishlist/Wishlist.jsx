@@ -1,20 +1,17 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { removeItems, clearItems } from "../../Store/CartSlice";
-import EmptyCart from "./EmptyCart";
-import { addToWishlist } from "../../Store/WishlistSlice";
-function Cart() {
-  const cartItems = useSelector((store) => store.cart.cartItems) || [];
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { removeFromWishlist, emptyWishlist } from '../../Store/WishlistSlice'
+import EmptyWishlist from './EmptyWishlist'
 
-  console.log("cartItems", cartItems);
+function Wishlist() {
+    const dispatch = useDispatch()
 
-  const dispatch = useDispatch();
+    const wishlistItems = useSelector((store) => store.wishlist.itemsInWishList) || []
 
-  return cartItems.length == 0 ? (
-    <EmptyCart/>
-  ) : (
-    <div className="p-6 bg-gray-100 min-h-screen">
+
+  return wishlistItems.length === 0 ? <EmptyWishlist/> :  (
+<div className="p-6 bg-gray-100 min-h-screen">
       <div className="p-3 mb-2 bg-gray-300 flex justify-between">
         <h1 className="text-3xl underline font-bold mb-6 text-center">
           Your Cart
@@ -22,16 +19,16 @@ function Cart() {
         <button
           className="bg-orange-500 text-white px-4 py-1 cursor-pointer rounded-lg shadow-md hover:bg-orange-600 hover:shadow-xl transition duration-300"
           onClick={() => {
-            alert('Clearing your Cart!')
-            dispatch(clearItems());
+            alert('Clearing your wishlist!')
+            dispatch(emptyWishlist());
           }}
         >
-          Clear Cart
+          Empty Wishlist
         </button>
       </div>
 
       <div className="flex flex-wrap gap-6 justify-left">
-        {cartItems.map((item) => (
+        {wishlistItems.map((item) => (
           <div
             key={item.id}
             className="bg-white p-6 w-80 rounded-xl shadow-md border hover:shadow-lg transition duration-300"
@@ -53,27 +50,17 @@ function Cart() {
             <button
               className="mt-4 bg-red-500 text-white px-4 py-2 cursor-pointer rounded-lg shadow-md hover:bg-red-600 hover:shadow-xl transition duration-300"
               onClick={() => {
-                alert(`${item.title} Removed from Cart!`);
-                dispatch(removeItems(item));
+                alert(`${item.title} Removed from wishlist!`);
+                dispatch(removeFromWishlist(item));
               }}
             >
-              Remove from Cart
-            </button>
-             <button
-              className="mt-4 bg-purple-500 text-white px-4 py-2 cursor-pointer rounded-lg shadow-md hover:bg-purple-600 hover:shadow-xl transition duration-300"
-              onClick={() => {
-                alert(`${item.title} Moved to Wishlist!`);
-                dispatch(addToWishlist(item));
-                dispatch(removeItems(item));
-              }}
-            >
-              Move to Wishlist
+              Remove from Wishlist
             </button>
           </div>
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default Cart;
+export default Wishlist

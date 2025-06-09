@@ -10,6 +10,7 @@ import Men from './components/Men/Men.jsx'
 import ProductDetail from './components/ProductDetail/ProductDetail.jsx'
 import AboutUs from './components/AboutUs/AboutUs.jsx'
 import Cart from './components/Cart/Cart.jsx'
+import Wishlist from './components/Wishlist/Wishlist.jsx'
 
 const Grocery = lazy(()=> import('./components/Grocery/Grocery.jsx')) // This isn't a normal import, this is a dynamic import(or, lazy loading)
 // Note:- We can create many lbunlders like thins uing code splitting/lazy loading.
@@ -26,6 +27,7 @@ const appRouter = createBrowserRouter(
       <Route path='about' element={<AboutUs  address={"Narayanpur, Jamtara"} />}/>
       <Route path='grocery' element={<Suspense fallback={<h1>Loading the Grocery App..</h1>}> <Grocery/> </Suspense>} />
       <Route path='cart' element={<Cart />}/>
+      <Route path='wishlist' element={<Wishlist />} />
       <Route path="*" element={<h1 className='text-3xl font-bold text-red-500'>404 Not Found</h1>} />
     </Route>
 

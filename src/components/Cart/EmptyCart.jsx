@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function EmptyCart() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] text-center px-6 py-10">
+    <div className="flex flex-col items-center justify-center min-h-[73vh] text-center px-6 py-10">
       <img
         src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png"
         alt="Empty Cart"
